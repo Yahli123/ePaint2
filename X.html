@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painter Program</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        canvas {
+            border: 1px solid #000;
+            cursor: crosshair;
+        }
+
+        #lineWidthInput {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="paintCanvas"></canvas>
+    <input type="range" id="lineWidthInput" min="1" max="20" value="5">
+
+    <script>
+        function initializeCanvas(canvasId, width, height) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            let isDrawing = false;
+            let lineWidth = 5;
+
+            canvas.width = width;
+            canvas.height = height;
+
+            canvas.addEventListener('mousedown', startDrawing);
+            canvas.addEventListener('mousemove', draw);
+            canvas.addEventListener('mouseup', stopDrawing);
+            canvas.addEventListener('mouseout', stopDrawing);
+
+            document.getElementById('lineWidthInput').addEventListener('input', updateLineWidth);
+
+            function startDrawing(e) {
+                isDrawing = true;
+                draw(e);
+            }
+
+            function draw(e) {
+                if (!isDrawing) return;
+
+                ctx.lineWidth = lineWidth;
+                ctx.lineCap = 'round';
+                ctx.strokeStyle = '#000';
+
+                ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+            }
+
+            function stopDrawing() {
+                isDrawing = false;
+                ctx.beginPath();
+            }
+
+            function updateLineWidth(e) {
+                lineWidth = e.target.value;
+            }
+        }
+
+        // Example usage
+        initializeCanvas('paintCanvas', 800, 600);
+    </script>
+</body>
+</html>

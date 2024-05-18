@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .logo{
+        font-size: 50px;
+        position: absolute;
+        top: -42px;
+        left: 20px;
+    }
+
+    .blue-rectangle {
+      background-color: #09cffb;
+      height: 75px;
+      width: 100%;
+    }
+
+    .black-rectangle {
+      background-color: black;
+      height: 1px;
+      width: 100%;
+      position: absolute;
+      top: 75px;
+    }
+
+    .main_title {
+      font-size: 50px;
+      position: absolute;
+      top: 200px;
+      left: 42%;
+    }
+
+    .Email_title {
+      font-size: 30px;
+      position: absolute;
+      top: 300px;
+      left: 36%;
+    }
+
+    .Username_title {
+      font-size: 30px;
+      position: absolute;
+      top: 450px;
+      left: 36%;
+    }
+
+    .Password_title {
+      font-size: 30px;
+      position: absolute;
+      top: 600px;
+      left: 36%;
+    }
+
+    .Email_field {
+      color: black;
+      background-color: #09cffb;
+      font-size: 20px;
+      width: 470px;
+      height: 40px;
+      position: absolute;
+      top: 375px;
+      left: 36%;
+    }
+
+    .Username_field {
+      color: black;
+      background-color: #09cffb;
+      font-size: 20px;
+      width: 470px;
+      height: 40px;
+      position: absolute;
+      top: 525px;
+      left: 36%;
+    }
+
+    .Password_field {
+      color: black;
+      background-color: #09cffb;
+      font-size: 20px;
+      width: 470px;
+      height: 40px;
+      position: absolute;
+      top: 675px;
+      left: 36%;
+    }
+
+    .btn1 {
+      color: black;
+      font-size: 30px;
+      border: 1px solid black;
+      border-radius: 90px;
+      width: 253px;
+      text-align: center;
+      line-height: 30px;
+      position: absolute;
+      top: 850px;
+      left: 42%;
+      height: 60px;
+      background: #09cffb;
+    }
+  </style>
+  <head>
+    <title>Sign Up Page</title>
+  </head>
+  <body>
+    <p class="logo">ePaint</p>
+    <div class="blue-rectangle"></div>
+    <div class="black-rectangle"></div>
+    <header class="main_title">Sign Up Page</header>
+
+    <form>
+      <p class="Email_title">Email:</p>
+      <input class="Email_field" type="email" placeholder="Type your Email" />
+
+      <p class="Username_title">Username:</p>
+      <input
+      class="Username_field"
+      type="text"
+      placeholder="Type your Username"
+      />
+
+      <p class="Password_title">Password:</p>
+      <input
+      class="Password_field"
+      type="password"
+      placeholder="Type your Password"
+      />
+
+      <button class="btn1">Sign Up</button>
+
+    </form>
+
+
+    <script src="../src/signup.js"></script>
+    
+
+  </body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+    <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .logo {
+      font-size: 50px;
+      position: absolute;
+      top: -42px;
+      left: 20px;
+    }
+
+    .blue-rectangle {
+      background-color: #09cffb;
+      height: 75px;
+      width: 100%;
+    }
+
+    .black-rectangle {
+      background-color: black;
+      height: 1px;
+      width: 100%;
+      position: absolute;
+      top: 75px;
+    }
+
+    canvas{
+        background-color: whitesmoke;
+        border: solid black 1px;
+        height: 700px;
+        width: 1200px;
+        position: absolute;
+        top: 21%;
+        left: 20%;
+        cursor: crosshair;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #colors {
+            margin: 10px auto;
+            text-align: center;
+        }
+    .color-button {
+        width: 30px;
+        height: 30px; 
+        border-radius: 5px; 
+        display: inline-block;
+        margin: 5px;
+        cursor: pointer;
+    }
+    .row1 {
+        position: absolute;
+        top: 12.5%;
+        left: 19.8%;
+    }
+    
+    .row2 {
+        position: absolute;
+        top: 16%;
+        left: 19.8%;
+    }
+
+    .pencil{
+        position: absolute;
+        top: 12.9%;
+        left: 42.9%;
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ccc;
+    }
+
+    .eraser{
+        position: absolute;
+        top: 16.45%;
+        left: 42.9%;
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ccc;
+    }
+
+    .icon {
+        font-size: 24px;
+    }
+
+    #menu {
+        position: fixed;
+        background-color: #fff;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        display: none;
+        z-index: 999;
+        left: 50%;
+        top: 30%;
+    }
+
+    .tag {
+        display: block;
+        padding: 5px;
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+
+    #toggleBtn {
+        padding: 21.5px 30px; 
+        font-size: 18px; 
+        background-color: #09cffb;
+        position: fixed;
+        top: 16%;
+        left: 52.75%;
+        transform: translate(-50%, -50%);
+        min-width: 285px;
+    }
+
+    .exit-button {
+        position: fixed;
+        top: 22px;
+        right: 20px;
+        padding: 10px 20px;
+        background-color: #ff9966; 
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .exit-button:hover {
+        background-color: #ff6600;
+    }
+
+    .save-button-container {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+
+    .save-button,
+    .save-share-button {
+        padding: 15px 30px;
+        background-color: #FFA500; 
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin: 0 10px; 
+    }
+
+    .save-button:hover,
+    .save-share-button:hover {
+        background-color: #FF8C00; 
+    }
+
+    #lineWidthInput {
+            margin-top: 10px;
+    }
+
+    </style>
+    <head>
+        <title>
+            Painter Page - User Version
+        </title>
+    </head>
+    <body>
+        <p class="logo">ePaint</p>
+        <div class="blue-rectangle"></div>
+        <div class="black-rectangle"></div>
+        <canvas id="paintCanvas"></canvas>
+        <a href="/"><button class="exit-button">Exit</button></a>
+        <div id="colors">
+            <div class="row1">
+                <button class="color-button" style="background-color: #ff0000;"></button>
+                <button class="color-button" style="background-color: #00ff00;"></button>
+                <button class="color-button" style="background-color: #0000ff;"></button>
+                <button class="color-button" style="background-color: #ffff00;"></button>
+                <button class="color-button" style="background-color: #ff00ff;"></button>
+                <button class="color-button" style="background-color: #000000;"></button>
+                <button class="color-button" style="background-color: #ffffff;"></button>
+                <button class="color-button" style="background-color: #ffa500;"></button>
+                <button class="color-button" style="background-color: #800080;"></button>
+                <button class="color-button" style="background-color: #00ffff;"></button>
+            </div>
+            <div class="row2">
+                <button class="color-button" style="background-color: #008080;"></button>
+                <button class="color-button" style="background-color: #008000;"></button>
+                <button class="color-button" style="background-color: #800000;"></button>
+                <button class="color-button" style="background-color: #808000;"></button>
+                <button class="color-button" style="background-color: #808080;"></button>
+                <button class="color-button" style="background-color: #ff69b4;"></button>
+                <button class="color-button" style="background-color: #b0e0e6;"></button>
+                <button class="color-button" style="background-color: #f0e68c;"></button>
+                <button class="color-button" style="background-color: #dda0dd;"></button>
+                <button class="color-button" style="background-color: #87cefa;"></button>
+            </div>
+            <div>
+                <button class="pencil" title="Pencil">
+                    <span class="icon">🧽</span>
+                </button>
+            </div>
+            <div id="menu">
+                <div class="tag" data-value="1">1</div>
+                <div class="tag" data-value="2">2</div>
+                <div class="tag" data-value="3">3</div>
+                <div class="tag" data-value="4">4</div>
+                <div class="tag" data-value="5">5</div>
+            </div>
+            <div class="save-button-container">
+                <button class="save-button">Save</button>
+                <button class="save-share-button">Save & Share</button>
+            </div>
+        
+            <input type="range" id="lineWidthInput" min="1" max="20" value="5">
+        
+            <script>
+                const menu = document.getElementById('menu');
+                const toggleBtn = document.getElementById('toggleBtn');
+        
+                toggleBtn.addEventListener('click', toggleMenu);
+        
+                const tags = document.querySelectorAll('.tag');
+        
+                tags.forEach(tag => {
+                    tag.addEventListener('click', selectTag);
+                });
+        
+                function toggleMenu() {
+                    if (menu.style.display === 'none') {
+                        const rect = toggleBtn.getBoundingClientRect();
+                        menu.style.top = rect.bottom + 'px';
+                        menu.style.left = rect.left + 'px';
+                        menu.style.width = toggleBtn.offsetWidth + 'px'; 
+                        menu.style.display = 'block';
+                    } else {
+                        menu.style.display = 'none';
+                    }
+                }
+        
+                function selectTag(event) {
+                    const value = event.target.dataset.value;
+                    toggleBtn.textContent = value; 
+                    console.log("Selected tag:", value);
+                    menu.style.display = 'none'; 
+                }
+            </script>
+            <script>
+                function initializeCanvas(canvasId, width, height) {
+                    const canvas = document.getElementById(canvasId);
+                    const ctx = canvas.getContext('2d');
+                    let isDrawing = false;
+                    let lineWidth = 5;
+        
+                    canvas.width = width;
+                    canvas.height = height;
+        
+                    canvas.addEventListener('mousedown', startDrawing);
+                    canvas.addEventListener('mousemove', draw);
+                    canvas.addEventListener('mouseup', stopDrawing);
+                    canvas.addEventListener('mouseout', stopDrawing);
+
+                    document.getElementById('lineWidthInput').addEventListener('input', updateLineWidth);
+        
+                    function startDrawing(e) {
+                        isDrawing = true;
+                        draw(e);
+                    }
+        
+                    function draw(e) {
+                        if (!isDrawing) return;
+        
+                        ctx.lineWidth = 5;
+                        ctx.lineCap = 'round';
+                        ctx.strokeStyle = '#000';
+                        ctx.lineWidth = lineWidth;
+        
+                        ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+                    }
+        
+                    function stopDrawing() {
+                        isDrawing = false;
+                        ctx.beginPath();
+                    }
+
+                    function updateLineWidth(e) {
+                        lineWidth = e.target.value;
+                    }
+                    
+                }
+
+                initializeCanvas('paintCanvas', 1200, 700);
+            </script>
+    </body>
+</html>

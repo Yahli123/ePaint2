@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .logo {
+        font-size: 50px;
+        position: absolute;
+        top: -42px;
+        left: 20px;
+    }
+    
+    .blue-rectangle {
+        background-color: #09cffb;
+        height: 75px;
+        width: 100%;
+    }
+    
+    .black-rectangle {
+        background-color: black;
+        height: 1px;
+        width: 100%;
+        position: absolute;
+        top: 75px;
+    }
+
+    .bottom-menu {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        box-sizing: border-box;
+        background-color: #fff;
+        border-top: 2px solid #333;
+        z-index: 999; 
+    }
+
+    .menu-section {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .menu-button {
+        padding: 15px 30px;
+        background-color: transparent;
+        color: #333;
+        border: none;
+        border-radius: 0;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .menu-button:hover {
+        background-color: #f0f0f0; 
+    }
+
+    .divider {
+        width: 2px;
+        height: 80%;
+        background-color: #333;
+    }
+
+    .exit-button {
+        position: fixed;
+        top: 22px;
+        right: 20px;
+        padding: 10px 20px;
+        background-color: #ff9966; 
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .exit-button:hover {
+        background-color: #ff6600;
+    }
+
+    .feed {
+        padding: 20px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column; 
+        align-items: center; /
+    }
+
+    .feed-item {
+        margin-bottom: 20px; 
+        text-align: center;
+    }
+
+    .feed-item h3 {
+        margin-top: 0; 
+        font-size: 16px;
+    }
+
+    .feed-item img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+</style>
+<head>
+    <title>ePaint - Home Page</title>
+</head>
+<body>
+    <p class="logo">ePaint</p>
+    <div class="blue-rectangle"></div>
+    <div class="black-rectangle"></div>
+    <a href="/"><button class="exit-button">Exit</button></a>
+    <div class="bottom-menu">
+        <div class="menu-section">
+            <a href="/My_Photos_Page"><button class="menu-button">My Photos</button></a>
+        </div>
+        <div class="divider"></div>
+        <div class="menu-section">
+            <a href="/Painter_Page_User_Version"><button class="menu-button">Create a new Photo</button></a>
+        </div>
+    </div>
+        <div class="feed-item">
+            <h3>Title 1</h3>
+            <a href="/Photo_page">
+                <img src="https://via.placeholder.com/300" alt="Placeholder image">
+            </a>
+        </div>
+        <div class="feed-item">
+            <h3>Title 2</h3>
+            <a href="/Photo_page">
+                <img src="https://via.placeholder.com/300" alt="Placeholder image">
+            </a>
+        </div>
+        <div class="feed-item">
+            <h3>Title 3</h3>
+            <a href="/Photo_page">
+                <img src="https://via.placeholder.com/300" alt="Placeholder image">
+            </a>
+        </div>
+</body>
+</html>
